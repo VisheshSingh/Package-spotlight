@@ -1,0 +1,4 @@
+{
+  "jwtSecret": "secretKey",
+  "apiKey": "12356789asdfghjklzxcvbnm"
+}
