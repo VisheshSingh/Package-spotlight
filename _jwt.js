@@ -1,8 +1,9 @@
 const jwt = require("jwt-simple");
 const config = require("config");
+const uuid = require("uuid");
 
 function generateToken() {
-  const payload = { id: 1, name: config.get("jwtSecret") };
+  const payload = { id: uuid.v4(), name: config.get("jwtSecret") };
 
   const token = jwt.encode(payload, config.get("jwtSecret"));
   return { token };
@@ -18,7 +19,7 @@ function validateToken(token) {
 
 console.log(
   validateToken(
-    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6InNlY3JldEtleSJ9.pbqsJZSeBYO6jMkg5NgyvUB158pKxPK29yu3Od4fFao",
+    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE3NWExMTkwLWY0NGUtNDMwYi1iM2ZiLTJhOGVmY2Y5YmUwZiIsIm5hbWUiOiJzZWNyZXRLZXkifQ.HWIUifUsPKF2ik7WySLlgP0POKbiEZALWVDJyv5Xkas",
     "secret"
   )
 );
